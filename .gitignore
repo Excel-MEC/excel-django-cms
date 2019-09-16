@@ -87,3 +87,9 @@ local_settings.py
 
 .env
 db.sqlite3
+migrations/
+media/
+
+
+## Credentials
+secret.py
