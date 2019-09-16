@@ -1,7 +1,8 @@
 from rest_framework import serializers
 
-from .models import UserClass, Event
 from django.contrib.auth.models import User
+
+from .models import Event
 
 
 class UserSerializer(serializers.ModelSerializer):

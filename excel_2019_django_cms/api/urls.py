@@ -15,12 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-from .views import testing, events
+from .views import events
 
 app_name = 'api'
 
 urlpatterns = [
-    url(r'^test/', testing.as_view(), name='testing'),
-
     url(r'^events/', events.as_view(), name='events'),
 ]
