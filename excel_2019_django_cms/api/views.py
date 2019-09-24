@@ -9,11 +9,13 @@ from .serializers import (
     EventSerializer,
     CompetitionSerializer,
     ContactSerializer,
+    ScheduleSerializer,
 )
 from .models import (
     Event,
     Competition,
     Contact,
+    Schedule,
 )
 
 
@@ -35,4 +37,10 @@ class contacts(APIView):
     def get(self, requests, format=None):
         contacts = Contact.objects.all()
         serializer = ContactSerializer(contacts, many=True)
+        return Response(serializer.data)
+
+class schedule(APIView):
+    def get(self, requests, format=None):
+        schedule = Schedule.objects.all()
+        serializer = ScheduleSerializer(schedule, many=True)
         return Response(serializer.data)

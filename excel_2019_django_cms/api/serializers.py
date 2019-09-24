@@ -2,7 +2,13 @@ from rest_framework import serializers
 
 from django.contrib.auth.models import User
 
-from .models import Event, Contact, Competition, CompetitionContactInfo
+from .models import(
+    Event,
+    Contact,
+    Competition,
+    CompetitionContactInfo,
+    Schedule,
+)
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -36,4 +42,10 @@ class ContactSerializer(serializers.ModelSerializer):
     contributor = UserSerializer()
     class Meta:
         model = Contact
+        fields = '__all__'
+
+class ScheduleSerializer(serializers.ModelSerializer):
+    contributor = UserSerializer()
+    class Meta:
+        model = Schedule
         fields = '__all__'

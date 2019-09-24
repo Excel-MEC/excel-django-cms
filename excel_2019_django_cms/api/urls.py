@@ -19,6 +19,7 @@ from .views import (
     events,
     competitions,
     contacts,
+    schedule,
 )
 
 app_name = 'api'
@@ -27,4 +28,5 @@ urlpatterns = [
     url(r'^events/', events.as_view(), name='events'),
     url(r'^competitions/', competitions.as_view(), name='competitions'),
     url(r'^contacts/', contacts.as_view(), name='contacts'),
+    url(r'^schedule/', schedule.as_view(), name='schedule'),
 ]
