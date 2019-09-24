@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import Event, Contact, Competition, CompetitionContactInfo
+from .models import(
+    Event,
+    Contact,
+    Competition,
+    CompetitionContactInfo,
+    Schedule
+)
 
 
 class CompetitionContactInfoInline(admin.StackedInline):
@@ -43,8 +49,16 @@ class ContactAdmin(admin.ModelAdmin):
         obj.contributor = request.user
         super().save_model(request, obj, form, change)
 
+class ScheduleAdmin(admin.ModelAdmin):
+    exclude = ('created_at', 'contributor')
+
+    def save_model(self, request, obj, form, change):
+        obj.contributor = request.user
+        super().save_model(request, obj, form, change)
+
 
 admin.site.register(Event, EventAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Competition, CompetitionAdmin)
 #admin.site.register(CompetitionContactInfo, CompetitionContactInfoAdmin)
+admin.site.register(Schedule, ScheduleAdmin)

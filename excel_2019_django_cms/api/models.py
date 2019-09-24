@@ -45,6 +45,7 @@ class Competition(models.Model):
 	def __str__(self):
 		return self.name + ' ' + self.codename
 
+
 class CompetitionContactInfo(models.Model):
 	name = models.CharField(max_length=100, null=True)
 	designation = models.CharField(max_length=100, null=True)
@@ -56,48 +57,12 @@ class CompetitionContactInfo(models.Model):
 	def __str__(self):
 		return self.name + ' ' + self.designation + ' ' + self.phone_number
 
-'''
-Contacts
 
-"username": "georgeshanti",
-"email": "georgeshanti@gmail.com",
-"id": 1,
-"createdAt": "2018-10-02T10:11:56.737Z",
-"updatedAt": "2018-10-16T14:17:31.252Z"
-
-Competition
-"active": true,
-"name": "Third Eye Photography",
-"codename": "third-eye",
-"contactInfo": [
-	{
-	"name": "Tinu Mathew",
-	"designation": "Event Coordinator",
-	"phone": "+91 97467 75597"
-	},
-	{
-	"name": "Atul Krishnan",
-	"designation": "Event Coordinator",
-	"phone": "+91 95441 20630"
-	}
-],
-"registration": "No Additional Fee",
-"department": "Non-Tech",
-"category": "Online",
-"date": "--",
-"time": "--",
-"venue": "Govt. Model Engineering College, Thrikkakara",
-"img": "http://excelmec.org/static/images/third-eye-photography.png",
-"color": "#2fb454",
-"id": 1
-
-Sponsors
-"createdAt": "2018-11-01T18:26:24.245Z",
-"color": "#fff",
-"name": "Nest Technologies",
-"category": "Title Sponsor",
-"link": "http://nesttech.com/",
-"img": "https://excelmec.org/static/media/nest_logo.62648bc1.png",
-"updatedAt": "2018-11-01T18:33:45.040Z",
-"id": 1
-'''
+class Schedule(models.Model):
+	name = models.CharField(max_length=100, null=True)
+	start = models.TimeField(null=True)
+	end = models.TimeField(null=True)
+	venue = models.CharField(max_length=100, null=True)
+	department = models.CharField(max_length=100, null=True)
+	created_at = models.DateTimeField(default=datetime.now, blank=True, null=True)
+	contributor = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, blank=True)
