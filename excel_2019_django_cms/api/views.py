@@ -39,6 +39,7 @@ class contacts(APIView):
         serializer = ContactSerializer(contacts, many=True)
         return Response(serializer.data)
 
+
 class schedule(APIView):
     def get(self, requests, format=None):
         schedule = Schedule.objects.all()
