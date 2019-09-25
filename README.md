@@ -6,7 +6,7 @@
 ```
 sudo apt-get install mysql-server
 ```
-2) Create a user on mysql.
+2) Create a user in mysql.
 [How to create a new user on mysql and grant access.](https://www.a2hosting.in/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line)
 
 3) Install linux dependencies.
@@ -34,5 +34,7 @@ python manage.py runserver
 ```
 ## Docs
 [https://docs.djangoproject.com/en/2.2/](https://docs.djangoproject.com/en/2.2/)
+
 [https://www.django-rest-framework.org/](https://www.django-rest-framework.org/)
+
 [https://simpleisbetterthancomplex.com/tutorial/2016/10/14/how-to-deploy-to-digital-ocean.html](https://simpleisbetterthancomplex.com/tutorial/2016/10/14/how-to-deploy-to-digital-ocean.html)
