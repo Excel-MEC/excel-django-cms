@@ -1,4 +1,3 @@
-# excel-2019-django-cms
 # Excel Mec REST api
 ## Steps for setting up the backend REST api
 
