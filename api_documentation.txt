@@ -1,0 +1,134 @@
+Root url /api/
+
+1) /events/
+
+   Method: GET
+
+   Returns
+
+    [
+        {
+            "name": "event2",
+            "type": "test",
+            "codename": "test",
+            "website": "http://test.com",
+            "details": "wow",
+            "img": "media/terrific_minds.png",
+            "created_at": "2019-09-17T08:28:40.155267+05:30",
+            "contributor": null
+        },
+        {
+            "name": "Testing",
+            "type": "testing",
+            "codename": "testing",
+            "website": "testing",
+            "details": "hey there how are you man",
+            "img": "media/greenyard_wallpaper.jpg",
+            "created_at": "2019-09-16T22:41:29.980861+05:30",
+            "contributor": {
+                "first_name": "",
+                "email": "augustinetharakan12@gmail.com"
+            }
+        }
+    ]
+
+2) /competitions/
+
+    Method: GET
+
+    Returns
+
+    [
+        {
+            "id": 1,
+            "contributor": {
+                "first_name": "test",
+                "email": "test@test.com"
+            },
+            "contact_numbers": [
+                {
+                    "id": 1,
+                    "contributor": null,
+                    "name": "test",
+                    "designation": "test",
+                    "phone_number": "test",
+                    "created_at": "2019-09-19T23:01:03.631729+05:30",
+                    "competition": 1
+                },
+                {
+                    "id": 2,
+                    "contributor": null,
+                    "name": "test2",
+                    "designation": "test2",
+                    "phone_number": "test2",
+                    "created_at": "2019-09-19T23:01:03.632268+05:30",
+                    "competition": 1
+                }
+            ],
+            "name": "test_competition",
+            "active": true,
+            "codename": "test_competition",
+            "registration": "test",
+            "department": "test_department",
+            "category": "test",
+            "date": "2019-09-19",
+            "time": "23:00:39",
+            "venue": "test_venue"
+        }
+    ]
+
+3) /contacts/
+
+    Method: GET
+
+    Returns
+
+    [
+        {
+            "id": 1,
+            "contributor": {
+                "first_name": "",
+                "email": "augustinetharakan12@gmail.com"
+            },
+            "name": "Augustine Tharakan",
+            "email": "augustinetharakan12@gmail.com",
+            "phone_number": "9567945420",
+            "img": "media/greenyard_wallpaper_HBPAAsS.jpg",
+            "created_at": "2019-09-27T14:45:06.628586+05:30"
+        }
+    ]
+
+4) /schedule/
+
+    Method: GET
+
+    Returns
+
+    [
+        {
+            "id": 1,
+            "contributor": {
+                "first_name": "test",
+                "email": "test@test.com"
+            },
+            "name": "test_schedule",
+            "start": "06:00:00",
+            "end": "18:00:00",
+            "venue": "302, 301",
+            "department": "Non-Tech",
+            "created_at": "2019-09-24T21:03:30.317513+05:30"
+        },
+        {
+            "id": 2,
+            "contributor": {
+                "first_name": "",
+                "email": "augustinetharakan12@gmail.com"
+            },
+            "name": "test_2",
+            "start": "21:04:03",
+            "end": "21:04:04",
+            "venue": "301",
+            "department": "Tech",
+            "created_at": "2019-09-24T21:04:18.049889+05:30"
+        }
+    ]
