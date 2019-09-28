@@ -22,7 +22,7 @@ Root url /api/
             "type": "testing",
             "codename": "testing",
             "website": "testing",
-            "details": "hey there how are you man",
+            "details": "testing",
             "img": "media/greenyard_wallpaper.jpg",
             "created_at": "2019-09-16T22:41:29.980861+05:30",
             "contributor": {
