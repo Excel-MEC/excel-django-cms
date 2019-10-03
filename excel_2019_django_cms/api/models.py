@@ -23,7 +23,7 @@ class Contact(models.Model):
 	name = models.CharField(max_length=100)
 	email = models.CharField(max_length=100, null=True)
 	phone_number = models.CharField(max_length=100, null=True)
-	img = models.ImageField(upload_to='media', null=True)
+	img = models.ImageField(upload_to='media', null=True, blank=True)
 	created_at = models.DateTimeField(default=datetime.now, blank=True, null=True)
 	contributor = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, blank=True)
 
@@ -33,7 +33,7 @@ class Contact(models.Model):
 
 class Competition(models.Model):
 	name = models.CharField(max_length=100, null=True)
-	img = models.ImageField(upload_to='media', null=True)
+	img = models.ImageField(upload_to='media', null=True, blank=True)
 	codename = models.CharField(max_length=100, null=True)
 	venue = models.CharField(max_length=100, null=True)
 	date = models.DateField(null=True)
@@ -84,7 +84,7 @@ class Schedule(models.Model):
 	venue = models.CharField(max_length=100, null=True)
 	date = models.DateField(null=True)
 	time = models.TimeField(null=True)
-	img = models.ImageField(upload_to='media', null=True)
+	img = models.ImageField(upload_to='media', null=True, blank=True)
 	day = models.IntegerField(default=1)
 	category = models.CharField(max_length=100, null=True)
 	daytime = models.CharField(max_length=100, null=True, choices=[('Morning', 'Morning'), ('Afternoon', 'Afternoon'), ('Evening', 'Evening')])
