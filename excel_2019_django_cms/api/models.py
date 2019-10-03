@@ -81,10 +81,13 @@ class EventButton(models.Model):
 
 class Schedule(models.Model):
 	name = models.CharField(max_length=100, null=True)
-	start = models.TimeField(null=True)
-	end = models.TimeField(null=True)
 	venue = models.CharField(max_length=100, null=True)
-	department = models.CharField(max_length=100, null=True)
+	date = models.DateField(null=True)
+	time = models.TimeField(null=True)
+	img = models.ImageField(upload_to='media', null=True)
+	day = models.IntegerField(default=1)
+	category = models.CharField(max_length=100, null=True)
+	daytime = models.CharField(max_length=100, null=True, choices=[('Morning', 'Morning'), ('Afternoon', 'Afternoon'), ('Evening', 'Evening')])
 	created_at = models.DateTimeField(default=datetime.now, blank=True, null=True)
 	contributor = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, blank=True)
 
