@@ -11,7 +11,7 @@ class Event(models.Model):
 	codename = models.CharField(max_length=50, null=True)
 	website = models.CharField(max_length=50, null=True)
 	details = models.CharField(max_length=2000, null=True)
-	img = models.ImageField(upload_to='media', null=True, null=True)
+	img = models.ImageField(upload_to='media', null=True)
 	created_at = models.DateTimeField(default=datetime.now, blank=True, null=True)
 
 	def __str__(self):
