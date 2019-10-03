@@ -73,6 +73,12 @@ class EventContactInfo(models.Model):
 		return self.name + ' ' + self.designation + ' ' + self.phone_number
 
 
+class EventButton(models.Model):
+	name = models.CharField(max_length=100, null=True)
+	link = models.CharField(max_length=100, null=True)
+	event = models.ForeignKey(Event, null=True, related_name='buttons', on_delete=models.CASCADE)
+
+
 class Schedule(models.Model):
 	name = models.CharField(max_length=100, null=True)
 	start = models.TimeField(null=True)

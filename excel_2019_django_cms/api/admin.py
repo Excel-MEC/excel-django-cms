@@ -5,7 +5,8 @@ from .models import(
     Competition,
     CompetitionContactInfo,
     Schedule,
-    EventContactInfo
+    EventContactInfo,
+    EventButton
 )
 
 
@@ -29,8 +30,14 @@ class EventContactInfoInline(admin.StackedInline):
         super().save_model(request, obj, form, change)
 
 
+class EventButtonInline(admin.StackedInline):
+    model = EventButton
+    max_num = 20
+    extra = 1
+
+
 class EventAdmin(admin.ModelAdmin):
-    inlines = (EventContactInfoInline,)
+    inlines = (EventContactInfoInline, EventButtonInline)
     readonly_fields = ('created_at',)
     exclude = ('contributor', )
 

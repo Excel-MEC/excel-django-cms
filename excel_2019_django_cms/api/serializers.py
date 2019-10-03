@@ -9,24 +9,36 @@ from .models import(
     CompetitionContactInfo,
     Schedule,
     EventContactInfo,
+    EventButton
 )
 
 
 class UserSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = User
         fields = ('first_name', 'email')
 
 
 class EventContactInfoSerializer(serializers.ModelSerializer):
-    class Mets:
+    
+    class Meta:
         model = EventContactInfo
         fields = '__all__'
+
+
+class EventButtonSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = EventButton
+        fields = ('name', 'link')
 
 
 class EventSerializer(serializers.ModelSerializer):
     contributor = UserSerializer()
     contact_numbers = EventContactInfoSerializer(many=True)
+    buttons = EventButtonSerializer(many=True)
+    
     class Meta:
         model = Event
         fields = '__all__'
@@ -34,6 +46,7 @@ class EventSerializer(serializers.ModelSerializer):
 
 class CompetitionContactInfoSerializer(serializers.ModelSerializer):
     contributor =  UserSerializer()
+    
     class Meta:
         model = CompetitionContactInfo
         fields = '__all__'
@@ -42,6 +55,7 @@ class CompetitionContactInfoSerializer(serializers.ModelSerializer):
 class CompetitionSerializer(serializers.ModelSerializer):
     contributor = UserSerializer()
     contact_numbers = CompetitionContactInfoSerializer(many=True)
+    
     class Meta:
         model = Competition
         fields = '__all__'
@@ -49,6 +63,7 @@ class CompetitionSerializer(serializers.ModelSerializer):
 
 class ContactSerializer(serializers.ModelSerializer):
     contributor = UserSerializer()
+    
     class Meta:
         model = Contact
         fields = '__all__'
@@ -56,6 +71,7 @@ class ContactSerializer(serializers.ModelSerializer):
 
 class ScheduleSerializer(serializers.ModelSerializer):
     contributor = UserSerializer()
+    
     class Meta:
         model = Schedule
         fields = '__all__'
