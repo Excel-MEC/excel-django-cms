@@ -32,14 +32,17 @@ class Contact(models.Model):
 
 class Competition(models.Model):
 	name = models.CharField(max_length=100, null=True)
-	active = models.BooleanField(default=True)
+	img = models.ImageField(upload_to='media', null=True)
 	codename = models.CharField(max_length=100, null=True)
-	registration = models.CharField(max_length=100, null=True)
-	department = models.CharField(max_length=100, null=True)
-	category = models.CharField(max_length=100, null=True)
+	venue = models.CharField(max_length=100, null=True)
 	date = models.DateField(null=True)
 	time = models.TimeField(null=True)
-	venue = models.CharField(max_length=100, null=True)
+	format = models.CharField(max_length=200, null=True)
+	rules = models.CharField(max_length=200, null=True)
+	active = models.BooleanField(default=True)
+	category = models.CharField(max_length=100, null=True)
+	type = models.CharField(max_length=100, null=True)
+	about = models.CharField(max_length=300, null=True)
 	contributor = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, blank=True)
 
 	def __str__(self):
@@ -66,3 +69,4 @@ class Schedule(models.Model):
 	department = models.CharField(max_length=100, null=True)
 	created_at = models.DateTimeField(default=datetime.now, blank=True, null=True)
 	contributor = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, blank=True)
+
