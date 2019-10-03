@@ -4,7 +4,8 @@ from .models import(
     Contact,
     Competition,
     CompetitionContactInfo,
-    Schedule
+    Schedule,
+    EventContactInfo
 )
 
 
@@ -18,12 +19,25 @@ class CompetitionContactInfoInline(admin.StackedInline):
         super().save_model(request, obj, form, change)
 
 
-class EventAdmin(admin.ModelAdmin):
-    readonly_fields = ('created_at',)
-    exclude = ('contributor', )
+class EventContactInfoInline(admin.StackedInline):
+    model = EventContactInfo
+    max_num = 20
+    extra = 1
+    exclude = ('created_at', 'contributor')
     def save_model(self, request, obj, form, change):
         obj.contributor = request.user
         super().save_model(request, obj, form, change)
+
+
+class EventAdmin(admin.ModelAdmin):
+    inlines = (EventContactInfoInline,)
+    readonly_fields = ('created_at',)
+    exclude = ('contributor', )
+
+    def save_model(self, request, obj, form, change):
+        obj.contributor = request.user
+        super().save_model(request, obj, form, change)
+
 
 class CompetitionContactInfoAdmin(admin.ModelAdmin):
     exclude = ('created_at', 'contributor')
@@ -49,7 +63,16 @@ class ContactAdmin(admin.ModelAdmin):
         obj.contributor = request.user
         super().save_model(request, obj, form, change)
 
+
 class ScheduleAdmin(admin.ModelAdmin):
+    exclude = ('created_at', 'contributor')
+
+    def save_model(self, request, obj, form, change):
+        obj.contributor = request.user
+        super().save_model(request, obj, form, change)
+
+
+class EventContactInfoAdmin(admin.ModelAdmin):
     exclude = ('created_at', 'contributor')
 
     def save_model(self, request, obj, form, change):
@@ -61,4 +84,5 @@ admin.site.register(Event, EventAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Competition, CompetitionAdmin)
 #admin.site.register(CompetitionContactInfo, CompetitionContactInfoAdmin)
+#admin.site.register(EventContactInfo, EventContactInfoAdmin)
 admin.site.register(Schedule, ScheduleAdmin)

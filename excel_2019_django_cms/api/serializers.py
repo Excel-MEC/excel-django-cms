@@ -8,6 +8,7 @@ from .models import(
     Competition,
     CompetitionContactInfo,
     Schedule,
+    EventContactInfo,
 )
 
 
@@ -17,11 +18,18 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('first_name', 'email')
 
 
+class EventContactInfoSerializer(serializers.ModelSerializer):
+    class Mets:
+        model = EventContactInfo
+        fields = '__all__'
+
+
 class EventSerializer(serializers.ModelSerializer):
     contributor = UserSerializer()
+    contact_numbers = EventContactInfoSerializer(many=True)
     class Meta:
         model = Event
-        fields = ('name', 'type', 'codename', 'website', 'details', 'img', 'created_at', 'contributor')
+        fields = '__all__'
 
 
 class CompetitionContactInfoSerializer(serializers.ModelSerializer):
@@ -38,11 +46,13 @@ class CompetitionSerializer(serializers.ModelSerializer):
         model = Competition
         fields = '__all__'
 
+
 class ContactSerializer(serializers.ModelSerializer):
     contributor = UserSerializer()
     class Meta:
         model = Contact
         fields = '__all__'
+
 
 class ScheduleSerializer(serializers.ModelSerializer):
     contributor = UserSerializer()
