@@ -41,12 +41,12 @@ class Competition(models.Model):
 	venue = models.CharField(max_length=100, null=True)
 	date = models.DateField(null=True)
 	time = models.TimeField(null=True)
-	format = models.CharField(max_length=200, null=True)
-	rules = models.CharField(max_length=200, null=True)
+	format = models.CharField(max_length=1000, null=True)
+	rules = models.CharField(max_length=2000, null=True)
 	active = models.BooleanField(default=True)
 	category = models.CharField(max_length=100, null=True)
 	type = models.CharField(max_length=100, null=True)
-	about = models.CharField(max_length=300, null=True)
+	about = models.CharField(max_length=1000, null=True)
 	contributor = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, blank=True)
 
 	def __str__(self):
