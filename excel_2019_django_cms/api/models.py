@@ -30,7 +30,7 @@ class Contact(models.Model):
 	contributor = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, blank=True)
 
 	def __str__(self):
-		return self.name + ' '
+		return self.name + ' ' + self.email
 
 
 class Competition(models.Model):
@@ -64,6 +64,7 @@ class CompetitionContactInfo(models.Model):
 	def __str__(self):
 		return self.name + ' ' + self.designation + ' ' + self.phone_number
 
+
 class EventContactInfo(models.Model):
 	name = models.CharField(max_length=100, null=True)
 	designation = models.CharField(max_length=100, null=True)
@@ -94,4 +95,7 @@ class Schedule(models.Model):
 	daytime = models.CharField(max_length=100, null=True, choices=[('Morning', 'Morning'), ('Afternoon', 'Afternoon'), ('Evening', 'Evening')])
 	created_at = models.DateTimeField(default=datetime.now, blank=True, null=True)
 	contributor = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, blank=True)
+
+	def __str__(self):
+		return self.name + ' ' + self.category
 
