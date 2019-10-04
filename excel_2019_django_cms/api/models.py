@@ -47,6 +47,7 @@ class Competition(models.Model):
 	category = models.CharField(max_length=100, null=True)
 	type = models.CharField(max_length=100, null=True)
 	about = models.CharField(max_length=5000, null=True)
+	prize = models.CharField(max_length=100, null=True, blank=True)
 	contributor = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, blank=True)
 
 	def __str__(self):
