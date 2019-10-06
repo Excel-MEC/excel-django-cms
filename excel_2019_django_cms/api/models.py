@@ -66,6 +66,12 @@ class CompetitionContactInfo(models.Model):
 		return self.name + ' ' + self.designation + ' ' + self.phone_number
 
 
+class CompetitionButton(models.Model):
+	name = models.CharField(max_length=100, null=True)
+	link = models.CharField(max_length=100, null=True)
+	Competition = models.ForeignKey(Competition, null=True, related_name='buttons', on_delete=models.CASCADE)
+
+
 class EventContactInfo(models.Model):
 	name = models.CharField(max_length=100, null=True)
 	designation = models.CharField(max_length=100, null=True)

@@ -6,7 +6,8 @@ from .models import(
     CompetitionContactInfo,
     Schedule,
     EventContactInfo,
-    EventButton
+    EventButton,
+    CompetitionButton
 )
 
 
@@ -18,6 +19,11 @@ class CompetitionContactInfoInline(admin.StackedInline):
     def save_model(self, request, obj, form, change):
         obj.contributor = request.user
         super().save_model(request, obj, form, change)
+
+class CompetitionButtonInline(admin.StackedInline):
+    model = CompetitionButton
+    max_num = 20
+    extra = 1
 
 
 class EventContactInfoInline(admin.StackedInline):
@@ -55,7 +61,7 @@ class CompetitionContactInfoAdmin(admin.ModelAdmin):
 
 
 class CompetitionAdmin(admin.ModelAdmin):
-    inlines = (CompetitionContactInfoInline,)
+    inlines = (CompetitionContactInfoInline, CompetitionButtonInline)
     exclude = ('contributor', )
 
     def save_model(self, request, obj, form, change):

@@ -9,7 +9,8 @@ from .models import(
     CompetitionContactInfo,
     Schedule,
     EventContactInfo,
-    EventButton
+    EventButton,
+    CompetitionButton
 )
 
 
@@ -51,10 +52,17 @@ class CompetitionContactInfoSerializer(serializers.ModelSerializer):
         model = CompetitionContactInfo
         fields = '__all__'
 
+class CompetitionButtonSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = CompetitionButton
+        fields = ('name', 'link')
+
 
 class CompetitionSerializer(serializers.ModelSerializer):
     contributor = UserSerializer()
     contact_numbers = CompetitionContactInfoSerializer(many=True)
+    buttons = CompetitionButtonSerializer(many=True)
     
     class Meta:
         model = Competition
