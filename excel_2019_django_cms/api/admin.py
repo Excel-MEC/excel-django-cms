@@ -46,6 +46,8 @@ class EventAdmin(admin.ModelAdmin):
     inlines = (EventContactInfoInline, EventButtonInline)
     readonly_fields = ('created_at',)
     exclude = ('contributor', )
+    list_display = ('name', 'codename', 'img', 'website', 'contributor')
+    search_fields = ('name',)
 
     def save_model(self, request, obj, form, change):
         obj.contributor = request.user
@@ -63,6 +65,8 @@ class CompetitionContactInfoAdmin(admin.ModelAdmin):
 class CompetitionAdmin(admin.ModelAdmin):
     inlines = (CompetitionContactInfoInline, CompetitionButtonInline)
     exclude = ('contributor', )
+    list_display = ('name', 'codename', 'img', 'venue', 'date', 'time', 'category', 'active', 'contributor')
+    search_fields = ('name',)
 
     def save_model(self, request, obj, form, change):
         obj.contributor = request.user
@@ -71,6 +75,8 @@ class CompetitionAdmin(admin.ModelAdmin):
 
 class ContactAdmin(admin.ModelAdmin):
     exclude = ('created_at', 'contributor')
+    list_display = ('name', 'email', 'phone_number', 'img', 'contributor')
+    search_fields = ('name',)
 
     def save_model(self, request, obj, form, change):
         obj.contributor = request.user
@@ -79,6 +85,8 @@ class ContactAdmin(admin.ModelAdmin):
 
 class ScheduleAdmin(admin.ModelAdmin):
     exclude = ('created_at', 'contributor')
+    list_display = ('name', 'venue', 'date', 'time', 'img', 'day', 'category', 'daytime', 'contributor')
+    search_fields = ('name',)
 
     def save_model(self, request, obj, form, change):
         obj.contributor = request.user
