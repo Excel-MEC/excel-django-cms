@@ -93,7 +93,8 @@ class EventButton(models.Model):
 class Schedule(models.Model):
 	name = models.CharField(max_length=100, null=True)
 	venue = models.CharField(max_length=100, null=True)
-	date = models.DateField(null=True)
+	date = models.CharField(max_length=100, null=True, blank=True)
+	# date = models.DateField(null=True)
 	time = models.TimeField(null=True)
 	img = models.CharField(max_length=100, null=True, blank=True)
 	# img = models.ImageField(upload_to='media', null=True, blank=True)
