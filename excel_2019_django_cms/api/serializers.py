@@ -63,10 +63,19 @@ class CompetitionSerializer(serializers.ModelSerializer):
     contributor = UserSerializer()
     contact_numbers = CompetitionContactInfoSerializer(many=True)
     buttons = CompetitionButtonSerializer(many=True)
-    
+    date = serializers.SerializerMethodField()
+    time = serializers.SerializerMethodField()
+
     class Meta:
         model = Competition
         fields = '__all__'
+
+    def get_date(self, obj):
+        # return "testing"
+        return obj.date.strftime("%B-%d")
+
+    def get_time(slef, obj):
+        return obj.time.strftime("%I:%M %p")
 
 
 class ContactSerializer(serializers.ModelSerializer):
