@@ -104,6 +104,9 @@ class Schedule(models.Model):
 	created_at = models.DateTimeField(default=datetime.now, blank=True, null=True)
 	contributor = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, blank=True)
 
+	class Meta:
+		verbose_name_plural = 'Schedule'
+
 	def __str__(self):
 		return self.name + ' ' + self.category
 
