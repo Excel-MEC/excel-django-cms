@@ -85,7 +85,7 @@ class ContactAdmin(admin.ModelAdmin):
 
 class ScheduleAdmin(admin.ModelAdmin):
     exclude = ('created_at', 'contributor')
-    list_display = ('name', 'venue', 'date', 'time', 'img', 'day', 'category', 'daytime', 'contributor')
+    list_display = ('name', 'codename', 'venue', 'date', 'time', 'img', 'day', 'category', 'daytime', 'contributor')
     search_fields = ('name',)
 
     def save_model(self, request, obj, form, change):
