@@ -95,6 +95,7 @@ class EventButton(models.Model):
 class Schedule(models.Model):
 	name = models.CharField(max_length=100, null=True)
 	venue = models.CharField(max_length=100, null=True, blank=True)
+	codename = models.CharField(max_length=100, null=True, blank=True)
 	# date = models.DateField(null=True)
 	# time = models.TimeField(null=True)
 	date = models.CharField(max_length=100, null=True, blank=True)
